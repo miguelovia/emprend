@@ -1,0 +1,288 @@
+$color-red: #fe6261;
+$color-black: #333333;
+$color-grey: #efefef;
+$color-white: #ffffff;
+$hform-login: 300px;
+$hform-register: 500px;
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background-color: $color-black;
+
+    &.light {
+        height: 100%;
+        background-color: $color-grey;
+    }
+
+    .navbar {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .color {
+        &-primary {
+            color: $color-red;
+        }
+
+        &-secondary {
+            color: $color-grey;
+        }
+    }
+
+    .material-icons {
+        &-size-sm {
+            font-size: 1rem;
+        }
+
+        &-size-md {
+            font-size: 1.5rem;
+        }
+
+        &-size-lg {
+            font-size: 2rem;
+        }
+
+        &-size-xl {
+            font-size: 3rem;
+        }
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Poppins;
+
+        .size-sm {
+            font-size: 1rem;
+        }
+
+        .size-md {
+            font-size: 1.5rem;
+        }
+
+        .size-lg {
+            font-size: 2rem;
+        }
+
+        .size-lx {
+            font-size: 6rem;
+        }
+    }
+
+    .logout {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    form {
+        .form-control {
+            border-radius: 0;
+        }
+    }
+
+    .bg-custom {
+        box-shadow: -1px 5px 3px 0px rgba(89, 89, 89, 0.78);
+        -webkit-box-shadow: -1px 5px 3px 0px rgba(89, 89, 89, 0.78);
+        -moz-box-shadow: -1px 5px 3px 0px rgba(89, 89, 89, 0.78);
+        background-color: $color-black;
+    }
+
+
+    a:link {
+        text-decoration: none;
+    }
+
+
+    a:visited {
+        text-decoration: none;
+    }
+
+
+    a:hover {
+        text-decoration: none;
+    }
+
+
+    a:active {
+        text-decoration: none;
+    }
+
+    .btn {
+        &-share {
+            cursor: pointer;
+            color: $color-white;
+            background-color: $color-red;
+            width: auto;
+            border: 0;
+            border-radius: 0;
+            align-items: center;
+            outline: none;
+
+            .icon {
+                margin-left: 10px;
+            }
+        }
+
+        &-secondary {
+            cursor: pointer;
+            display: flex;
+            padding: 10px 20px;
+            color: $color-white;
+            background-color: $color-grey;
+            width: auto;
+            border: 0;
+            border-radius: 0;
+            align-items: center;
+            outline: none;
+
+            &:hover {
+                background-color: $color-grey;
+            }
+        }
+
+        &-primary {
+
+            cursor: pointer;
+            display: flex;
+            padding: 10px 20px;
+            color: $color-white;
+            background-color: $color-red;
+            width: auto;
+            border: 0;
+            border-radius: 0;
+            align-items: center;
+            outline: none;
+
+            &:hover {
+                background-color: $color-red;
+            }
+
+            &:focus {
+                border: 0;
+                outline: none;
+            }
+        }
+
+
+    }
+
+    .section {
+        .login {
+            margin-top: calc(50% - $hform-login);
+            height: 100%;
+            color: $color-white;
+
+            form {
+                min-height: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            &-center {
+                margin: auto;
+                width: 30vw;
+            }
+        }
+
+        .register {
+            margin-top: calc(50% - $hform-register);
+            height: 100%;
+            color: $color-white;
+
+            form {
+                min-height: 500px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+
+
+        .header {
+            &-primary {
+                font-weight: 900;
+                color: $color-black;
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+                text-decoration-line: underline;
+                /* &::after{
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    color: #333333;
+                    border-top: 1px solid black;
+                } */
+            }
+
+
+        }
+
+        /* hr{
+            color: #333333;
+        }   */
+
+        .title {
+            color: $color-white;
+
+            &_main {
+                font-size: 1rem;
+
+                &_sub-title {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .list {
+            background-color: $color-black;
+            padding: 30px 30px;
+
+            .icon {
+                color: $color-red;
+                font-size: 4rem;
+                background-color: $color-grey;
+                border-radius: 50%;
+                padding: 10px;
+            }
+
+            .idea {
+                background-color: $color-grey;
+                color: $color-black;
+            }
+
+            .author {
+                display: flex;
+                justify-content: flex-end;
+
+                .end-text {
+                    color: $color-white;
+                    width: auto;
+                }
+            }
+        }
+
+        .aling-end {
+            align-self: flex-end !important;
+        }
+
+        .form-idea {
+            padding: 15px 0px;
+        }
+
+    }
+
+
+
+}
