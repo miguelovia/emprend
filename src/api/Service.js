@@ -1,4 +1,3 @@
-//import authAxios from './config'
 import { authAxios } from './config';
 
 export const SignUp = async (data) => {

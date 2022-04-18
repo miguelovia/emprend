@@ -176,11 +176,13 @@ body {
 
 
     }
+    .container-fluid{
+        height: 100%;
+    }
 
     .section {
+        height: 100%;
         .login {
-            margin-top: calc(50% - $hform-login);
-            height: 100%;
             color: $color-white;
 
             form {
@@ -197,10 +199,7 @@ body {
         }
 
         .register {
-            margin-top: calc(50% - $hform-register);
-            height: 100%;
             color: $color-white;
-
             form {
                 min-height: 500px;
                 display: flex;
@@ -208,7 +207,10 @@ body {
                 justify-content: space-around;
             }
         }
-
+        
+        &.home{
+            padding: 100px 0 100px;
+        }
 
         .header {
             &-primary {
@@ -217,21 +219,8 @@ body {
                 font-size: 1.5rem;
                 letter-spacing: 2px;
                 text-decoration-line: underline;
-                /* &::after{
-                    content: "";
-                    width: 100%;
-                    height: 1px;
-                    color: #333333;
-                    border-top: 1px solid black;
-                } */
             }
-
-
         }
-
-        /* hr{
-            color: #333333;
-        }   */
 
         .title {
             color: $color-white;

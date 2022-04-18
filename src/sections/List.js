@@ -1,12 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useLayoutEffect, useRef } from 'react'
 import { IdeasWithUser } from '../api/Service'
 import { AuthContext } from '../context/AuthContext';
 import { authAxios } from '../api/config';
+import { Alert } from 'bootstrap';
 
 export const List = (props) => {
     const { user, setUser, isLogged } = useContext(AuthContext);
     const [page, setPage] = useState(1);
-    const [ideas, setIdeas] = useState([]);
+    const {ideas, setIdeas} = props
+    
     const [pagination, setPagination] = useState(true);
 
     const formatDate = (date) => {
@@ -15,20 +17,29 @@ export const List = (props) => {
         return date[0];
     }
 
+
+
     useEffect(() => {
         const init = async () => {
             try {
                 authAxios.defaults.headers.common['Authorization'] = 'Bearer ' + user.api_token;
                 const response = await IdeasWithUser(page);
                 setIdeas(ideas.concat(response.data));
+                //console.log(response.to, response.total);
                 if (response.to == response.total)
                     setPagination(false);
             } catch (error) {
-                alert("ocurrió un error al ejecutar el servicio");
+                Alert("ocurrió un error al ejecutar el servicio",error.response.status);
+                if(error.response.status == 401){
+                    localStorage.clear();
+                    setUser({});
+                }
             }
         }
         init();
     }, [page]);
+    
+    
 
     const loadMore = () => {
         setPage(page + 1);

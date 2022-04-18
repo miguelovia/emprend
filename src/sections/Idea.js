@@ -7,20 +7,24 @@ import { Alert } from '../utilities/Alert';
 import { useNavigate } from "react-router-dom";
 
 export const Idea = (props) => {
-    const {user, ...others} = useContext(AuthContext);
+    const {user,setUser} = useContext(AuthContext);
     let navigate = useNavigate()
     
 
     const onSubmit = async(data) =>{
         try {
-            await NewIdea(data);
+            let response = await NewIdea(data);
+            console.log(response);
             Alert('Datos guardados correctamente',200);
+
         }
         catch (error) {
             Alert('Ocurrió un error al guardar idea',error.response.status);
-        }finally{
-            navigate("/home");
-        } 
+            if(error.response.status == 401){
+                localStorage.clear();
+                setUser({});
+            }
+        }
     }
 
     return ( <div className='container'>
@@ -28,11 +32,12 @@ export const Idea = (props) => {
         <div className='form-idea'>
             <Formik
             initialValues={{idea:""}}
-            onSubmit={async values => {
+            onSubmit={async (values,{resetForm}) => {
                 const data = new FormData();
                 data.append("body", values.idea);
                 data.append("id", user.id);
                 await onSubmit(data);
+                resetForm({values:''});
             }}
             validationSchema={Yup.object().shape({
                 idea:Yup.string()

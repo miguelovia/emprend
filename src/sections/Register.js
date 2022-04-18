@@ -23,6 +23,10 @@ export const Register = () => {
       Alert("Datos guardados correctamente",200);
     } catch (error) {
       Alert("Ocurrió un error al intentar guardar usuario",error.response.status);
+      if(error.response.status == 401){
+        localStorage.clear();
+        setUser({});
+      }
     }
   }
 
@@ -30,8 +34,8 @@ export const Register = () => {
   return (
     <div className='container-fluid'>
       <div className='section'>
-        <div className='row d-flex justify-content-center   align-items-center register'>
-          <div className='col-5'>
+        <div className='row d-flex justify-content-center align-items-center h-100 register'>
+          <div className='col-12 col-md-3  col-lg-3 col-xl-3'>
           <Logo />
             <Formik
               initialValues={{ name: "", email: "", password: "", password_confirmation: "" }}
@@ -106,7 +110,7 @@ export const Register = () => {
                       </label>
                       <input
                         id="password"
-                        type="text"
+                        type="password"
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -123,7 +127,7 @@ export const Register = () => {
                       </label>
                       <input
                         id="password_confirmation"
-                        type="text"
+                        type="password"
                         value={values.password_confirmation}
                         onChange={handleChange}
                         onBlur={handleBlur}

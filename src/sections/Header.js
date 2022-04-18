@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className={`navbar  navbar-expand-lg  ${isLogged() ?  "navbar-light bg-light": "navbar-dark bg-custom"} `}>
+      <nav className={`navbar fixed-top navbar-expand-lg  ${isLogged() ?  "navbar-light bg-light": "navbar-dark bg-custom"} `}>
         <Link to="/" className='navbar-brand logo'>
           <span className="material-icons color-primary">
           explore

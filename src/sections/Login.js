@@ -23,15 +23,19 @@ export const Login = () => {
       navigate("/home");
     } catch (error) {
       Alert('El usuario o contraseña son incorrectos',error.response.status);
+      if(error.response.status == 401){
+        localStorage.clear();
+        setUser({});
+      }
     }
   }
 
   return (<div className='container-fluid'>
     <div className='section'>
       
-      <div className='row d-flex justify-content-center   align-items-center login'>
+      <div className='row d-flex justify-content-center align-items-center align-items-center h-100 login'>
       
-        <div className='col-5 '>  
+        <div className='col-12 col-md-3  col-lg-3 col-xl-3'>  
           <Logo />
           <Formik
             initialValues={{ email: "", password: "" }}
@@ -87,7 +91,7 @@ export const Login = () => {
                   </label>
                   <input
                     id="password"
-                    type="text"
+                    type="password"
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}

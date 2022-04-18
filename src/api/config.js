@@ -1,7 +1,9 @@
 
 import axios from 'axios';
+import { Alert } from '../utilities/Alert';
 
 export const URL = "http://localhost:8000/api";
+
 
 export const authAxios = axios.create({
     baseURL: URL,
@@ -12,5 +14,3 @@ export const authAxios = axios.create({
         
     }
 });
-
-

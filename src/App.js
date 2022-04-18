@@ -9,6 +9,7 @@ import { authAxios } from './api/config';
 import { AuthRoute, ProtectedRoute } from './routes/routes';
 import { ToastContainer } from 'react-toastify';
 
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -68,10 +69,7 @@ function App() {
               <Home />
             </ProtectedRoute>}
             />
-
-      
           </Routes>
-
         </Router>
         <ToastContainer
         theme="dark"
@@ -84,7 +82,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
+        />
         </div>
       </AuthContext.Provider>
   
